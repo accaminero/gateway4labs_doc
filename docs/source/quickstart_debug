@@ -31,7 +31,7 @@ Open config.py with your favourite text editor and include the following informa
 
 env_config = {'engine' : 'mysql', 'username' : 'YOUR_USERNAME', 'password' : 'YOUR_PASSWORD', 'dbname' : 'YOUR_DB_NAME', 'host' : 'localhost', 'pymysql' : True}
 
-6. Deploy the application (e.g. create the database, …)
+6. Deploy the application (e.g. create the database, ...)
 
 python deploy.py -cdu
 	
@@ -40,42 +40,52 @@ python deploy.py -cdu
 python run.py
 
 
-
-
-
 Debugging with Eclipse
+=======================
 
 By following the previous steps the application is running with the built-in Python debugger enabled, which reloads the application when it detects changes in the code. If you plan to debug the application using an external debugger (e.g. PyDev on Eclipse IDE), for instance, because you want to be able to perform step by step executions, you have to follow these steps:
 
-Install Eclipse IDE:
+1. Install Eclipse IDE:
 
-	sudo apt-get install eclipse
+sudo apt-get install eclipse
 
-Install Pydev (Python plugin for Eclipse):
+2. Install Pydev (Python plugin for Eclipse):
 
 Follow the installation guide here:
 http://pydev.org/manual_101_install.html
 
-Make your Eclipse work with virtualenv (full instructions in Spanish here). NOTE: This assumes your are working in a virtualenv, skip this point otherwise.
+3. Make your Eclipse work with virtualenv (full instructions in Spanish here). NOTE: This assumes your are working in a virtualenv, skip this point otherwise.
 
-Once you have a Eclipse project created based on PyDev, right-click on the project and select “Properties”.
-In the “PyDev – Interpreter/Grammar” entry, you will see the following window:
+	a. Once you have a Eclipse project created based on PyDev, right-click on the project and select “Properties”.
+
+	b. In the “PyDev – Interpreter/Grammar” entry, you will see the following window:
+	
+	.. image:: /_static/eclipse-virtualenv-1.png
+   	:width: 200 px
+   	:align: center
 
 
-Click on “Click here to configure an interpreter not listed”. Then we see the window shown in the following figure:
+	c. Click on “Click here to configure an interpreter not listed”. Then we see the window shown in the following figure:
+
+	.. image:: /_static/eclipse-virtualenv-2.png
+   	:width: 200 px
+   	:align: center
+
+	d. Click on “New”. Then, we have to include the route to the Python executable in the virtualenv of interest. 
+
+	e. After clicking “Ok”, Eclipse will  scan the route looking for libraries, and will offer the possibility to  add more libraries. In this point, we will have to add ”/usr/lib/python2.7” (or the Python version we have installed in our computer), as can be seen in this figure.
+	
+	.. image:: /_static/eclipse-virtualenv-4.png
+   	:width: 200 px
+   	:align: center
+
+ 	f. Click “Ok” several times until you get back to the first figure presented in this document. In this window, select the newly created interpreter and click “Ok”.
 
 
-Click on “New”. Then, we have to include the route to the Python executable in the virtualenv of interest. 
-After clicking “Ok”, Eclipse will  scan the route looking for libraries, and will offer the possibility to  add more libraries. In this point, we will have to add ”/usr/lib/python2.7” (or the Python version we have installed in our computer), as can be seen in this figure.
-
- 
-
-Click “Ok” several times until you get back to the first figure presented in this document. In this window, select the newly created interpreter and click “Ok”.
-
-Open the config.py file in the labmanager installation and set: 
+4. Open the config.py file in the labmanager installation and set: 
 
 DEBUG = False 
 
-Once you save the change to the config.py you are ready to debug your installation of LabManager, using breakpoints, watching variables, ...
+5. Once you save the change to the config.py you are ready to debug your installation of LabManager, using breakpoints, watching variables, ...
 
 
